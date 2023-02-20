@@ -27,24 +27,16 @@ bool isOP(char ch){
 }
 
 struct Nodo {
-    // representa nuestro nodo dentro de la expresion
     char data;
     Nodo* left;
     Nodo* right;
 
     Nodo(char data) {
-        // hacemos nuestro constructor
         this->data = data;
         left = right = nullptr;
     }
 };
 
-// función que determina si un carácter es un operador
-/* bool isOperator(char ch) { */
-/*     return (ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '^'); // Retornamos un valor verdadero cuando nuestro caracter sea un operador */
-/* } */
-
-// función para generar el árbol de expresión a partir de una expresión postfija
 Nodo* genExpTree(string postfijo) {
     stack<Nodo*> st; // stack para retener nuestro caracter
     Nodo* l, * r, * temp;
