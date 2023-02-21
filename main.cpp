@@ -62,7 +62,7 @@ Nodo* genExpTree(string postfijo) {
 }
 
 // función para imprimir la expresión en orden de inorden
-void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
+void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int a = 260, int b = 85) {
     if (Raiz == nullptr) return;
     if(flag == ""){
       cout << "root: " << Raiz->data << endl;
