@@ -117,23 +117,11 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
 
 void Display(Nodo* current){
   if(current == nullptr)return;
-  queue<Nodo*> obj;
-  obj.push(current);
-  while(!obj.empty()){
-    Nodo* temp = obj.front();
-    window.draw(temp->shape);
-    window.draw(temp->text);
-    if(temp->left)window.draw(temp->leftone);
-    if(temp->right)window.draw(temp->rightone);
-    obj.pop();
-    if(temp->right) obj.push(temp->right);
-    if(temp->left) obj.push(temp->left);
-  }
-  window.display();
-  /* window.draw(current->text); */
-  /* window.draw(current->shape); */
-  /* Display(current->left); */
-  /* Display(current->right); */
+  window.draw(current->text);
+  if(current->left) window.draw(current->leftone);
+  if(current->right) window.draw(current->rightone);
+  Display(current->left);
+  Display(current->right);
 }
 
 
@@ -193,7 +181,7 @@ int main(){
 	}
       }
     }
-    /* window.display(); */
+    window.display();
     window.clear();
   }
 }
