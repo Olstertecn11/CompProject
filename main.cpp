@@ -62,11 +62,19 @@ Nodo* genExpTree(string postfijo) {
 }
 
 // función para imprimir la expresión en orden de inorden
-void Inorden(Nodo* Raiz) {
+void Inorden(Nodo* Raiz, string flag) {
     if (Raiz == nullptr) return;
-    cout << Raiz->data;
-    Inorden(Raiz->left);
-    Inorden(Raiz->right);
+    if(flag == ""){
+      cout << "root: " << Raiz->data << endl;
+    }
+    else if(flag == "i"){
+      cout << "izq: " << Raiz->data << endl;
+    }
+    else if(flag == "d"){
+      cout << "der: " << Raiz->data << endl;
+    }
+    Inorden(Raiz->left, "i");
+    Inorden(Raiz->right, "d");
 }
 
 
@@ -113,7 +121,7 @@ int main(){
   cout << "Posfijo: " << result << endl;
   cout << "Arbol: " << endl;
   Nodo* Raiz = genExpTree(result); // generamos el árbol de expresión
-  Inorden(Raiz);
+  Inorden(Raiz, "");
 }
 
 
