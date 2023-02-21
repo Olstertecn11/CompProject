@@ -1,9 +1,7 @@
-#include <SFML/Window/Event.hpp>
-#include <stack>
-#include <iostream>
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Color.hpp>
-#include "textNode.cpp"
+#include <stack>
+#include <iostream>
 using namespace std;
 #define WIDTH 1070
 #define HEIGHT 920
@@ -37,7 +35,7 @@ struct Nodo {
     char data;
     Nodo* left;
     Nodo* right;
-    textNode text = textNode("", sf::Color::Red, 26);
+    /* textNode text = textNode("", sf::Color::Red, 26); */
     sf::CircleShape shape; 
     sf::RectangleShape leftone;
     sf::RectangleShape rightone;
@@ -79,7 +77,7 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
     Raiz->shape.setPosition(sf::Vector2f(x, y));
-    Raiz->text.setText(sf::Vector2f(x, y), to_string(Raiz->data));
+    /* Raiz->text.setText(sf::Vector2f(x, y), to_string(Raiz->data)); */
   }
   else if(flag == "d"){
     cout << "der: " << Raiz->data;
@@ -88,7 +86,7 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
     parent->rightone.setFillColor(sf::Color::Red);
     parent->rightone.setRotation(230);
     parent->rightone.setPosition(sf::Vector2f(a+50, b+40));
-    Raiz->text.setText(sf::Vector2f(x+50, y+50), to_string(Raiz->data));
+    /* Raiz->text.setText(sf::Vector2f(x+50, y+50), to_string(Raiz->data)); */
   }
   else if(flag == "i"){
     cout << "izq: " << Raiz->data;
@@ -97,7 +95,7 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
     parent->leftone.setFillColor(sf::Color::Red);
     parent->leftone.setRotation(130);
     parent->leftone.setPosition(sf::Vector2f(a, b));
-    Raiz->text.setText(sf::Vector2f(x-50, y+50), to_string(Raiz->data));
+    /* Raiz->text.setText(sf::Vector2f(x-50, y+50), to_string(Raiz->data)); */
   }
   if(parent != nullptr){
     cout << " parent: " <<  parent->data << endl;
@@ -108,7 +106,7 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
 
 void Display(Nodo* current){
   if(current == nullptr)return;
-  window.draw(current->text);
+  /* window.draw(current->text); */
   window.draw(current->shape);
   if(current->left)window.draw(current->leftone);
   if(current->right)window.draw(current->rightone);
