@@ -84,6 +84,8 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
   }
   else if(flag == "d"){
     cout << "der: " << Raiz->data;
+    Raiz->shape.setRadius(20);
+    Raiz->shape.setFillColor(sf::Color::White);
     Raiz->shape.setPosition(sf::Vector2f((x + 50), (y + 50))); 
     parent->rightone.setSize(sf::Vector2f(50, 5)); 
     parent->rightone.setFillColor(sf::Color::Red);
@@ -94,6 +96,9 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
   }
   else if(flag == "i"){
     cout << "izq: " << Raiz->data;
+    Raiz->shape.setRadius(20);
+    Raiz->shape.setFillColor(sf::Color::White);
+    Raiz->shape.setPosition(sf::Vector2f((x + 50), (y + 50))); 
     Raiz->shape.setPosition(sf::Vector2f((x - 50), (y + 50)));
     parent->leftone.setSize(sf::Vector2f(50, 5));
     parent->leftone.setFillColor(sf::Color::Red);
@@ -117,8 +122,8 @@ void Display(Nodo* current){
     Nodo* temp = obj.front();
     window.draw(temp->shape);
     window.draw(temp->text);
-    if(current->left)window.draw(current->leftone);
-    if(current->right)window.draw(current->rightone);
+    if(current->left)window.draw(temp->leftone);
+    if(current->right)window.draw(temp->rightone);
     obj.pop();
     if(temp->left) obj.push(temp->left);
     if(temp->right) obj.push(temp->right);
