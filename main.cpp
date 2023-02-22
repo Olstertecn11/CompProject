@@ -74,10 +74,12 @@ Nodo* genExpTree(string postfijo) {
 
 int root_x = 250;
 int root_y = 50;
+Nodo* aux;
 
 void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
   if (Raiz == nullptr) return;
   if(flag == ""){
+    aux = Raiz;
     cout << "root: " << Raiz->data << endl;
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
@@ -86,6 +88,10 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     Raiz->text.setText(sf::Vector2f(root_x, root_y), s);
   }
   else if(flag == "d"){
+    sf::Vector2f myPos = parent->text.getPos();
+    if (parent != nullptr && parent == aux){
+      myPos.x+= 50;
+    }
     cout << "der: " << Raiz->data;
     sf::Vector2f myPos = parent->text.getPos();
     Raiz->shape.setRadius(20);
@@ -101,6 +107,9 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
   else if(flag == "i"){
     /* if(parent->left->data == Raiz->left->data) cout << "Es el mismo lol -- "; */  
     sf::Vector2f myPos = parent->text.getPos();
+    if (parent != nullptr && parent == aux){
+      myPos.x-= 50;
+    }
     cout << "izq: " << Raiz->data;
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
