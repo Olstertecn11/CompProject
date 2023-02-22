@@ -1,6 +1,7 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Color.hpp>
 #include <SFML/Graphics/Vertex.hpp>
+#include <SFML/System/Vector2.hpp>
 #include <stack>
 #include <iostream>
 #include <queue>
@@ -98,7 +99,7 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
     Raiz->shape.setPosition(sf::Vector2f(myPos.x+75, myPos.y+50)); 
-    parent->rightone[0].position = parent->text.getPos(); 
+    parent->rightone[0].position = sf::Vector2f(parent->text.getPos().x+15, parent->text.getPos().y+5); 
     parent->rightone[0].color = sf::Color::Yellow; 
     parent->rightone[1].position = sf::Vector2f(myPos.x+75, myPos.y+50); 
     parent->rightone[1].color = sf::Color::Yellow; 
@@ -115,7 +116,7 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
     Raiz->shape.setPosition(sf::Vector2f(myPos.x-75, myPos.y+50));
-    parent->leftone[0].position = sf::Vector2f(parent->text.getPos().x+10, parent->text.getPos().y); 
+    parent->leftone[0].position = sf::Vector2f(parent->text.getPos().x+15, parent->text.getPos().y+5); 
     parent->leftone[0].color = sf::Color::Yellow; 
     parent->leftone[1].position = sf::Vector2f(myPos.x-55, myPos.y+50); 
     parent->leftone[1].color = sf::Color::Yellow; 
