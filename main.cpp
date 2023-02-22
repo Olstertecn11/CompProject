@@ -90,13 +90,13 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     sf::Vector2f myPos = parent->text.getPos();
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
-    Raiz->shape.setPosition(sf::Vector2f(myPos.x+50, myPos.y+50)); 
-    /* parent->rightone.setSize(sf::Vector2f(50, 5)); */ 
+    Raiz->shape.setPosition(sf::Vector2f(myPos.x+75, myPos.y+75)); 
+    /* parent->rightone.setSize(sf::Vector2f(75, 5)); */ 
     /* parent->rightone.setFillColor(sf::Color::Red); */
     /* parent->rightone.setRotation(230); */
-    /* parent->rightone.setPosition(sf::Vector2f(a+50, b+40)); */
+    /* parent->rightone.setPosition(sf::Vector2f(a+75, b+40)); */
     string s(1, Raiz->data);
-    Raiz->text.setText(sf::Vector2f(myPos.x+50, myPos.y+50), s);
+    Raiz->text.setText(sf::Vector2f(myPos.x+75, myPos.y+75), s);
   }
   else if(flag == "i"){
     /* if(parent->left->data == Raiz->left->data) cout << "Es el mismo lol -- "; */  
@@ -104,13 +104,13 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     cout << "izq: " << Raiz->data;
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
-    Raiz->shape.setPosition(sf::Vector2f(myPos.x-50, myPos.y+50));
-    /* parent->leftone.setSize(sf::Vector2f(50, 5)); */
+    Raiz->shape.setPosition(sf::Vector2f(myPos.x-75, myPos.y+75));
+    /* parent->leftone.setSize(sf::Vector2f(75, 5)); */
     /* parent->leftone.setFillColor(sf::Color::Red); */
     /* parent->leftone.setRotation(130); */
     /* parent->leftone.setPosition(sf::Vector2f(a, b)); */
     string s(1, Raiz->data);
-    Raiz->text.setText(sf::Vector2f(myPos.x-50, myPos.y+50), s);
+    Raiz->text.setText(sf::Vector2f(myPos.x-75, myPos.y+75), s);
   }
   if(parent != nullptr){
     cout << " parent: " <<  parent->data << endl;
