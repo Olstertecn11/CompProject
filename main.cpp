@@ -1,5 +1,6 @@
 #include <SFML/Graphics.hpp>
 #include <SFML/Graphics/Color.hpp>
+#include <SFML/Graphics/Vertex.hpp>
 #include <stack>
 #include <iostream>
 #include <queue>
@@ -39,9 +40,10 @@ struct Nodo {
     Nodo* right;
     textNode text = textNode("", sf::Color::Red, 26);
     sf::CircleShape shape; 
-    sf::RectangleShape leftone;
-    sf::RectangleShape rightone;
+    sf::Vertex rightone[2];
+    sf::Vertex leftone[2];
     Nodo(char data) {
+      this->data = data;
       this->data = data;
       left = right = nullptr;
     }
@@ -96,10 +98,10 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
     Raiz->shape.setPosition(sf::Vector2f(myPos.x+75, myPos.y+50)); 
-    /* parent->rightone.setSize(sf::Vector2f(75, 5)); */ 
-    /* parent->rightone.setFillColor(sf::Color::Red); */
-    /* parent->rightone.setRotation(230); */
-    /* parent->rightone.setPosition(sf::Vector2f(a+75, b+40)); */
+    parent->rightone[0].position = parent->text.getPos(); 
+    parent->rightone[0].color = sf::Color::Yellow; 
+    parent->rightone[1].position = sf::Vector2f(myPos.x+75, myPos.y+50); 
+    parent->rightone[1].color = sf::Color::Yellow; 
     string s(1, Raiz->data);
     Raiz->text.setText(sf::Vector2f(myPos.x+75, myPos.y+50), s);
   }
@@ -113,6 +115,11 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
     Raiz->shape.setPosition(sf::Vector2f(myPos.x-75, myPos.y+50));
+    parent->leftone[0].position = parent->text.getPos(); 
+    parent->leftone[0].color = sf::Color::Yellow; 
+    parent->leftone[1].position = sf::Vector2f(myPos.x-75, myPos.y+50); 
+    parent->leftone[1].color = sf::Color::Yellow; 
+
     /* parent->leftone.setSize(sf::Vector2f(75, 5)); */
     /* parent->leftone.setFillColor(sf::Color::Red); */
     /* parent->leftone.setRotation(130); */
@@ -131,8 +138,8 @@ void Display(Nodo* current){
   if(current == nullptr)return;
   window.draw(current->shape);
   window.draw(current->text);
-  if(current->left) window.draw(current->leftone);
-  if(current->right) window.draw(current->rightone);
+  if(current->left) window.draw(current->leftone, 2, sf::Lines);
+  if(current->right) window.draw(current->rightone, 2, sf::Lines);
   Display(current->left);
   Display(current->right);
 }
