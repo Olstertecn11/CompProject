@@ -71,16 +71,19 @@ Nodo* genExpTree(string postfijo) {
   return temp; // devolvemos la raíz del árbol
 }
 
-// función para imprimir la expresión en orden de inorden
-void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int a = 260, int b = 85) {
+
+int root_x = 250;
+int root_y = 50;
+
+void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
   if (Raiz == nullptr) return;
   if(flag == ""){
     cout << "root: " << Raiz->data << endl;
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
-    Raiz->shape.setPosition(sf::Vector2f(x, y));
+    Raiz->shape.setPosition(sf::Vector2f(root_x, root_y));
     string s(1, Raiz->data);
-    Raiz->text.setText(sf::Vector2f(x, y), s);
+    Raiz->text.setText(sf::Vector2f(root_x, root_y), s);
   }
   else if(flag == "d"){
     cout << "der: " << Raiz->data;
