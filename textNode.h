@@ -11,6 +11,7 @@ class textNode: public sf::Drawable{
     sf::Text text;
     int font_size;
   public:
+    sf::Vector2f getPos();
     textNode(std::string, sf::Color, int);
     virtual void draw(sf::RenderTarget &target, sf::RenderStates state) const;
     void loadFont();
