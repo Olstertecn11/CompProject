@@ -101,7 +101,7 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     Raiz->shape.setPosition(sf::Vector2f(myPos.x+75, myPos.y+50)); 
     parent->rightone[0].position = sf::Vector2f(parent->text.getPos().x+15, parent->text.getPos().y+5); 
     parent->rightone[0].color = sf::Color::Yellow; 
-    parent->rightone[1].position = sf::Vector2f(myPos.x+75, myPos.y+50); 
+    parent->rightone[1].position = sf::Vector2f(myPos.x+95, myPos.y+50); 
     parent->rightone[1].color = sf::Color::Yellow; 
     string s(1, Raiz->data);
     Raiz->text.setText(sf::Vector2f(myPos.x+75, myPos.y+50), s);
@@ -137,10 +137,10 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
 
 void Display(Nodo* current){
   if(current == nullptr)return;
+    if(current->left) window.draw(current->leftone, 2, sf::Lines);
+  if(current->right) window.draw(current->rightone, 2, sf::Lines);
   window.draw(current->shape);
   window.draw(current->text);
-  if(current->left) window.draw(current->leftone, 2, sf::Lines);
-  if(current->right) window.draw(current->rightone, 2, sf::Lines);
   Display(current->left);
   Display(current->right);
 }
