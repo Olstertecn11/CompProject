@@ -95,11 +95,10 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
     Raiz->text.setText(sf::Vector2f(x+50, y+50), s);
   }
   else if(flag == "i"){
-    if(parent->left == Raiz->left) cout << "Es el mismo lol -- ";  
+    /* if(parent->left->data == Raiz->left->data) cout << "Es el mismo lol -- "; */  
     cout << "izq: " << Raiz->data;
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
-    Raiz->shape.setPosition(sf::Vector2f((x + 50), (y + 50))); 
     Raiz->shape.setPosition(sf::Vector2f((x - 50), (y + 50)));
     parent->leftone.setSize(sf::Vector2f(50, 5));
     parent->leftone.setFillColor(sf::Color::Red);
@@ -117,6 +116,7 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent, int x = 250, int y= 50, int 
 
 void Display(Nodo* current){
   if(current == nullptr)return;
+  window.draw(current->shape);
   window.draw(current->text);
   if(current->left) window.draw(current->leftone);
   if(current->right) window.draw(current->rightone);
