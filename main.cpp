@@ -93,7 +93,6 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
       myPos.x+= 50;
     }
     cout << "der: " << Raiz->data;
-    sf::Vector2f myPos = parent->text.getPos();
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
     Raiz->shape.setPosition(sf::Vector2f(myPos.x+75, myPos.y+50)); 
