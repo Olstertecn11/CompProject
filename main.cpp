@@ -115,9 +115,9 @@ void Inorden(Nodo* Raiz, string flag, Nodo* parent) {
     Raiz->shape.setRadius(20);
     Raiz->shape.setFillColor(sf::Color::White);
     Raiz->shape.setPosition(sf::Vector2f(myPos.x-75, myPos.y+50));
-    parent->leftone[0].position = parent->text.getPos(); 
+    parent->leftone[0].position = sf::Vector2f(parent->text.getPos().x+10, parent->text.getPos().y); 
     parent->leftone[0].color = sf::Color::Yellow; 
-    parent->leftone[1].position = sf::Vector2f(myPos.x-75, myPos.y+50); 
+    parent->leftone[1].position = sf::Vector2f(myPos.x-55, myPos.y+50); 
     parent->leftone[1].color = sf::Color::Yellow; 
 
     /* parent->leftone.setSize(sf::Vector2f(75, 5)); */
