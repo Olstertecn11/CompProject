@@ -1,4 +1,5 @@
 #include "textNode.h"
+#include <SFML/System/Vector2.hpp>
 
 textNode::textNode(std::string text, sf::Color forecolor, int size) {
   this->value = text;
@@ -30,4 +31,9 @@ void textNode::setText(sf::Vector2f pos, std::string val){
   text.setOrigin((textRect.width/2)-18, (textRect.height/2)-8);
   /* text.setOrigin((textRect.width/2)-12, (textRect.height/2)-5); */
   text.setPosition(pos);
+}
+
+
+sf::Vector2f textNode::getPos(){
+  return this->text.getPosition();
 }
